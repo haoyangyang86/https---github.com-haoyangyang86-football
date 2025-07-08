@@ -11,4 +11,9 @@ COPY . .
 
 EXPOSE 5000
 
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
+# CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
+# 原来的命令:
+# CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
+
+# 修改后的新命令 (增加了 --timeout 120):
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--timeout", "120", "app:app"]
